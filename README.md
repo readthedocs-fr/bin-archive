@@ -1,0 +1,2 @@
+# bin
+A simple pastebin
