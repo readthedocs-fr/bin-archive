@@ -2,7 +2,6 @@
 
 import hashlib
 import pathlib
-from html import escape
 from bottle import (
     route, request, run, template, redirect, HTTPError, static_file
 )
@@ -50,7 +49,7 @@ def bin(hexhash, lang=None):
     hexhash, _, ext = hexhash.partition(".")
     lang = (request.query.get('lang') or ext).lower()
     lang = lang_aliases.get(lang, lang) or "plaintext"
-    code = escape(database.get(hexhash))
+    code = database.get(hexhash)
     if not code:
         raise HTTPError(status=404)
     return template(html, code=code, lang=lang)
