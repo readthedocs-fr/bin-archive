@@ -1,0 +1,31 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background-color: #23241f;
+	color: #B0BEC5;
+	font-family: monospace;
+	height: 100vh;
+	line-height: 1.1em;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+#submit, #newbin {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+}
+#code {
+	padding: 1rem 1rem;
+	width: 100%;
+	height: 100vh;
+	border: none;
+	background-color: #23241f;
+	resize: none;
+	color: inherit;
+	overflow: auto;
+	font-family: inherit;
+	line-height: inherit;
+	overflow: scroll;
+}

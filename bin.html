@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bin</title>
+	<meta charset=utf-8>
+	%if code:
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/styles/monokai-sublime.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad(); var currentLang = "{{lang}}";</script>
+	<script src="/assets/bin.js"></script>
+	%else:
+	<script src="/assets/newbin.js"></script>
+	%end
+	<link rel="stylesheet" type="text/css" href="/assets/bin.css">
+</head>
+<body>
+	%if code:
+	<div id=newbin>
+		<select id=select></select>
+		<a href="/"><button>New bin</button></a>
+	</div>
+	<pre><code id=hlcode class="lang-{{lang}}">{{code}}</code></pre>
+	%else:
+	<form action="/" method=POST>
+		<textarea name=code id=code placeholder="bin something." autofocus></textarea>
+		<input type=submit id=submit hidden>
+	</form>
+	%end
+</body>
+</html>
