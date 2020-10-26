@@ -24,8 +24,25 @@ body {
 	background-color: #23241f;
 	resize: none;
 	color: inherit;
-	overflow: auto;
 	font-family: inherit;
 	line-height: inherit;
 	overflow: scroll;
+}
+
+#hlcode {
+	line-height:2px;
+}
+
+#hlcode li {
+	list-style-type:decimal-leading-zero; /* decimal : 9, 10 | decimal-leading-zero : 09, 10 */
+	list-style-position: inside;
+}
+
+#hlcode li::before { /* separate line counter of code ( 1.      print("hi") )*/
+	content:"";
+	margin-right:1%;
+}
+
+#hlcode li::marker {
+	color:#B0BEC5; /* list-style-type color */
 }

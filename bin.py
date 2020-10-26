@@ -50,8 +50,12 @@ def bin(hexhash, lang=None):
     lang = (request.query.get('lang') or ext).lower()
     lang = lang_aliases.get(lang, lang) or "plaintext"
     code = database.get(hexhash)
+
     if not code:
         raise HTTPError(status=404)
+    
+    code = code.split("\n")
+        
     return template(html, code=code, lang=lang)
 
 

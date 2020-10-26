@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>bin</title>
-	<meta charset=utf-8>
+	<meta charset="utf-8">
 	%if code:
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/styles/monokai-sublime.min.css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/highlight.min.js"></script>
@@ -15,15 +15,19 @@
 </head>
 <body>
 	%if code:
-	<div id=newbin>
-		<select id=select></select>
+	<div id="newbin">
+		<select id="select"></select>
 		<a href="/"><button>New bin</button></a>
 	</div>
-	<pre><code id=hlcode class="lang-{{lang}}">{{code}}</code></pre>
+	<pre><code id="hlcode" class="lang-{{lang}}">
+% for line in code:
+<li>{{line}}</li>
+% end
+</code></pre>
 	%else:
-	<form action="/" method=POST>
-		<textarea name=code id=code placeholder="bin something." autofocus></textarea>
-		<input type=submit id=submit hidden>
+	<form action="/" method="POST">
+		<textarea name="code" id="code" placeholder="bin something." autofocus></textarea>
+		<input type="submit" id="submit" hidden>
 	</form>
 	%end
 </body>
