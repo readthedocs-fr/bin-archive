@@ -49,7 +49,7 @@ def bin(hexhash, lang=None):
     hexhash, _, ext = hexhash.partition(".")
     lang = (request.query.get('lang') or ext).lower()
     lang = lang_aliases.get(lang, lang) or "plaintext"
-    code = database.get(hexhash)
+    code = database.get(hexhash, "").encode("latin-1").decode("utf-8")
     if not code:
         raise HTTPError(status=404)
     return template(html, code=code, lang=lang)
